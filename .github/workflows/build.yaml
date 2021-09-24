@@ -1,4 +1,4 @@
-name: Release
+name: docker push
 on: workflow_dispatch
     
     
@@ -27,5 +27,5 @@ jobs:
         with:
           context: .
           file: ${{github.workspace}}/Dockerfile.17-slim
-          tags: 17-slim
+          tags: evermind/openjdk-service:17-slim
           push: true
