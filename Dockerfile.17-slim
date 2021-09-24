@@ -1,0 +1,6 @@
+FROM openjdk:17-slim
+
+RUN \
+  useradd service -d /service && \
+  sed -i -r 's/^#?networkaddress.cache.ttl=.*/networkaddress.cache.ttl=1/'  /usr/java/latest/conf/security/java.security && \
+  sed -i -r 's/^#?networkaddress.cache.negative.ttl=.*/networkaddress.cache.negative.ttl=1/'  /usr/java/latest/conf/security/java.security 
