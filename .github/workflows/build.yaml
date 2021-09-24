@@ -16,9 +16,16 @@ jobs:
           username: ${{ secrets.DOCKERHUB_USER_NAME }}
           password: ${{ secrets.DOCKERHUB_USER_PASSWORD }}
 
+      - name: Docker meta
+        id: meta
+        uses: docker/metadata-action@v3
+        with:
+          images: evermind/openjdk-service
+
       - name: Push to Docker Hub
         uses: docker/build-push-action@v2
         with:
           context: .
           file: ${{github.workspace}}/Dockerfile.17-slim
+          tags: 17-slim
           push: true
